@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    --cor-principal: #4169E1;
+    --preto: #13131a;
+    --fundo: #1C1C1C;
+    --borda: 0.1rem solid rgba(255, 255, 255, 0.3);
+    font-size: 10px;
+
+}
+
+body {
+    background-color: var(--fundo);
+}
+
+section {
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-bottom: var(--borda);
+    background-color: #1C1C1C;
+}
+
+.header section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+}
+
+.navbar a {
+    margin: 0 1rem;
+    font-size: 1.8rem;
+    color: white;
+
+}
+
+.navbar a:hover {
+    color: var(--cor-principal);
+    border-bottom: 0.1rem solid var(--cor-principal);
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+
+}
+
+.home-container {
+    background: url("homeimagem2.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+
+.content {
+    max-width: 60rem;
+
+}
+
+.content h3 {
+    color: white;
+    font-size: 6rem;
+}
+
+.content h3 span{
+    color: #4169E1;
+    font-size: 7rem;
+    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-width: 0.1rem;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.content p {
+    color: white;
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 1.8;
+    padding: 1rem 0;
+  
+}
+
+.home-container .content p{
+    color: white;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.8;
+    padding: 1rem 1rem;
+  background-color:#4169E1;
+}
+
+.home-container section {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.titulo {
+    font-size: 5rem;
+    color: var(--cor-principal);
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+}
+
+.titulo span {
+    color: white;
+    text-transform: uppercase;
+}
+
+.sobre .texto {
+    display: flex;
+    align-items: center;
+}
+
+.sobre .texto .content {
+    padding: 2rem;
+
+}
+
+.sobre .texto .content h3 {
+    font-size: 3rem;
+    color: white;
+}
+
+.sobre .texto .content p {
+    font-size: 1.6rem;
+    color: white;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+
+.artes .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+
+}
+
+.artes .box-container .box {
+    text-align: center;
+    border: var(--borda);
+    padding: 5rem;
+}
+
+.artes .box-container .box img {
+    height: 38rem;
+}
+
+.artes .box-container .box h3 {
+    color: white;
+    font-size: 2rem;
+    margin-top: 1rem;
+    padding: 2rem 0;
+}
+
+.titulo-saiba {
+    font-size: 5rem;
+    color: var(--cor-principal);
+    text-align: start;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.titulo-saiba span {
+    color: white;
+    text-transform: uppercase;
+}
+
+.saiba-texto p{
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 0.7rem;
+    font-weight: 200;
+}
+
+.botao {
+    background-color: var(--cor-principal);
+    color: white;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    margin-top: 3rem;
+    display: inline-block;
+}
+
+.botao:hover {
+    letter-spacing: 0.1rem;
+}
