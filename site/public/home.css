@@ -158,6 +158,39 @@ section {
     border: var(--borda);
     padding: 5rem;
 }
+.artes .box-container .box2 {
+    text-align: start;
+    border: var(--borda);
+    padding: 5rem;
+    color: white;
+}
+
+
+.artes .box-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.artes .box-container2 p {
+    font-size: 1.4rem;
+    
+}
+.senhared {
+    color: red;
+}
+.senhagreen {
+    color: green;
+}
+
+.input {
+    height: 4rem;
+    width: 50rem;
+     text-transform: none;
+     
+}
+
 
 .artes .box-container .box img {
     height: 38rem;
@@ -203,4 +236,16 @@ section {
 
 .botao:hover {
     letter-spacing: 0.1rem;
+}
+
+.wallpaperC {
+   background: url("cadastro\ wallpaper.avif");
+    background-position: center;
+    background-size: cover;
+}
+.wallpaperL {
+   background: url("wallpaper\ login.jpg");
+    background-position: center;
+    background-size:cover;
+    
 }

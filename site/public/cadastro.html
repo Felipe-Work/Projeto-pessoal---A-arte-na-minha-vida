@@ -1,11 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wdth,wght@75..100,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    
+    <header class="header">
+        <section>
+            <a href="home.html" class="logo">
+                <img src="pincel.png" alt="logo" width="50px" height="50px">
+            </a>
+
+            <nav class="navbar">
+                <a href="home.html">Home</a>
+                <a href="cadastro.html">Cadastro</a>
+                <a href="login.html">Login</a>
+            </nav>
+
+
+        </section>
+    </header>
+     <div class="wallpaperC">
+    <section class="artes" id="artes" style="background-color: #1C1C1C;">
+         
+        <h3 class="titulo">Cadastro</h3>
+
+      
+        <div class="box-container">
+            <div class="box2">
+                <h2 class="titulo">Cadastro</h2>
+                <div class="box-container2">
+                    <p>Nome completo</p> <br>
+                    <input class="input" type="" name="" id="nome_ipt" placeholder="insira seu nome completo"> <br> <br>
+                    <p>CPF</p> <br>
+                    <input class="input" type="text" name="" id="cpf_ipt" placeholder="apenas os números"> <br> <br>
+                    <p> Email </p> <br>
+                    <input class="input" type="text" name="" id="email_ipt" placeholder="felipe.maia@sptech.school">
+                    <br> <br>
+                    <p>Senha</p> <br>
+                    <input class="input" type="text" name="" id="senha_ipt" placeholder="Felipe#2026"> <br>
+                    <p class="senhared" id="minimo">Mínimo 8 caracteres</p> <br>
+                    <p class="senhared" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p> <br>
+                    <p class="senhared" id="maiuscula">Mínimo uma letra maiúscula</p> <br>
+                    <p class="senhared" id="minuscula">Mínimo uma letra minúscula</p> <br>
+                    <p class="senhared" id="numero">Contenha um número</p> <br> <br> <br>
+                    <p>Confirmar senha</p> <br>
+                    <input class="input" type="text" name="" id="confirmar_ipt" placeholder="Felipe#2026"> <br>
+                    <p>Sua nota de interesse ao tema do site</p> <br>
+                    <input class="input" type="text" name="" id="nota_antes_ipt" placeholder="0 a 10"> <br>
+                    <button onclick="cadastrar()" class="botao">Cadastre-se</button>
+
+                </div>
+
+
+
+            </div>
+            </div>
+            </div>
+
+    </section>
 </body>
+
 </html>
+<script>
+    function cadastrar() {
+
+        let email = email_ipt.value
+        let nome = nome_ipt.value
+        let cpf = cpf_ipt.value
+        let senha = senha_ipt.value
+        let confirmar = confirmar_ipt
+        let nota_antes = Number(nota_antes_ipt.value)
+
+        if (senha.length >= 8) {
+            minimo.innerHTML = `<p class="senhagreen" id="minimo">Mínimo 8 caracteres</p>`
+        }
+        else {
+            minimo.innerHTML = `<p class="senhared" id="minimo">Mínimo 8 caracteres</p>`
+        }
+        if (senha.includes('@') || senha.includes('&') || senha.includes('$') || senha.includes('#')) {
+            especiais.innerHTML = `<p class="senhagreen" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p>`
+        }
+        else {
+            especiais.innerHTML = `<p class="senhared" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p>`
+        }
+        if (
+            senha.includes('A') || senha.includes('B') || senha.includes('C') || senha.includes('D') ||
+            senha.includes('E') || senha.includes('F') || senha.includes('G') || senha.includes('H') ||
+            senha.includes('I') || senha.includes('J') || senha.includes('K') || senha.includes('L') ||
+            senha.includes('M') || senha.includes('N') || senha.includes('O') || senha.includes('P') ||
+            senha.includes('Q') || senha.includes('R') || senha.includes('S') || senha.includes('T') ||
+            senha.includes('U') || senha.includes('V') || senha.includes('W') || senha.includes('X') ||
+            senha.includes('Y') || senha.includes('Z')
+        ) {
+            maiuscula.innerHTML = `<p class="senhagreen" id="maiuscula">Mínimo uma letra maiúscula</p>`
+        }
+        else {
+            maiuscula.innerHTML = `<p class="senhared" id="maiuscula">Mínimo uma letra maiúscula</p>`
+        }
+        if (
+            senha.includes('a') || senha.includes('b') || senha.includes('c') || senha.includes('d') ||
+            senha.includes('e') || senha.includes('f') || senha.includes('g') || senha.includes('h') ||
+            senha.includes('i') || senha.includes('j') || senha.includes('k') || senha.includes('l') ||
+            senha.includes('m') || senha.includes('n') || senha.includes('o') || senha.includes('p') ||
+            senha.includes('q') || senha.includes('r') || senha.includes('s') || senha.includes('t') ||
+            senha.includes('u') || senha.includes('v') || senha.includes('w') || senha.includes('x') ||
+            senha.includes('y') || senha.includes('z')
+        ) {
+            minuscula.innerHTML = `<p class="senhagreen" id="minuscula">Mínimo uma letra minúscula</p>`
+        }
+        else {
+            minuscula.innerHTML = `<p class="senhared" id="minuscula">Mínimo uma letra minúscula</p>`
+        }
+
+
+
+        if (nome.length == 0) {
+            alert('Insira um nome válido para cadastro')
+        }
+        else if (cpf.length == 11) {
+
+
+        }
+        else {
+            alert('Insira um CPF válido para cadastro')
+        }
+       
+    }
+</script>

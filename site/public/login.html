@@ -1,11 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wdth,wght@75..100,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    
+    <header class="header">
+        <section>
+            <a href="home.html" class="logo">
+                <img src="pincel.png" alt="logo" width="50px" height="50px">
+            </a>
+
+            <nav class="navbar">
+                <a href="home.html">Home</a>
+                <a href="cadastro.html">Cadastro</a>
+                <a href="login.html">Login</a>
+            </nav>
+
+
+        </section>
+    </header>
+    <div class="wallpaperL">
+    <section class="artes" id="artes" style="background-color: #1C1C1C;">
+        <h3 class="titulo">Login</h3>
+
+        <div class="box-container">
+            <div class="box2">
+                <h2 class="titulo">Login</h2>
+                <div class="box-container2">
+                    <p> Email </p> <br>
+                    <input class="input" type="text" name="" id="email_ipt" placeholder="felipe.maia@sptech.school">
+                    <br> <br>
+                    <p>Senha</p> <br>
+                    <input class="input" type="text" name="" id="senha_ipt" placeholder="Felipe#2026"> <br>
+                    <button onclick="login()" class="botao">Login</button>
+
+                </div>
+            </div>
+</div>
+    </section>
 </body>
+
 </html>
+<script>
+    function login() {
+
+        let email = email_ipt.value
+        let senha = senha_ipt.value
+    
+        if (nome.length == 0) {
+            alert('Insira um nome válido para cadastro')
+        }
+       
+    }
+</script>
