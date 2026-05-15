@@ -28,43 +28,44 @@
 
         </section>
     </header>
-     <div class="wallpaperC">
-    <section class="artes" id="artes" style="background-color: #1C1C1C;">
-         
-        <h3 class="titulo">Cadastro</h3>
+    <div class="wallpaperC">
+        <section class="artes" id="artes" style="background-color: #1C1C1C;">
 
-      
-        <div class="box-container">
-            <div class="box2">
-                <h2 class="titulo">Cadastro</h2>
-                <div class="box-container2">
-                    <p>Nome completo</p> <br>
-                    <input class="input" type="" name="" id="nome_ipt" placeholder="insira seu nome completo"> <br> <br>
-                    <p>CPF</p> <br>
-                    <input class="input" type="text" name="" id="cpf_ipt" placeholder="apenas os números"> <br> <br>
-                    <p> Email </p> <br>
-                    <input class="input" type="text" name="" id="email_ipt" placeholder="felipe.maia@sptech.school">
-                    <br> <br>
-                    <p>Senha</p> <br>
-                    <input class="input" type="text" name="" id="senha_ipt" placeholder="Felipe#2026"> <br>
-                    <p class="senhared" id="minimo">Mínimo 8 caracteres</p> <br>
-                    <p class="senhared" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p> <br>
-                    <p class="senhared" id="maiuscula">Mínimo uma letra maiúscula</p> <br>
-                    <p class="senhared" id="minuscula">Mínimo uma letra minúscula</p> <br>
-                    <p class="senhared" id="numero">Contenha um número</p> <br> <br> <br>
-                    <p>Confirmar senha</p> <br>
-                    <input class="input" type="text" name="" id="confirmar_ipt" placeholder="Felipe#2026"> <br>
-                    <p>Sua nota de interesse ao tema do site</p> <br>
-                    <input class="input" type="text" name="" id="nota_antes_ipt" placeholder="0 a 10"> <br>
-                    <button onclick="cadastrar()" class="botao">Cadastre-se</button>
+            <h3 class="titulo">Cadastro</h3>
+
+
+            <div class="box-container">
+                <div class="box2">
+                    <h2 class="titulo">Cadastro</h2>
+                    <div class="box-container2">
+                        <p>Nome completo</p> <br>
+                        <input class="input" type="" name="" id="nome_ipt" placeholder="insira seu nome completo"> <br>
+                        <br>
+                        <p>CPF</p> <br>
+                        <input class="input" type="text" name="" id="cpf_ipt" placeholder="apenas os números"> <br> <br>
+                        <p> Email </p> <br>
+                        <input class="input" type="text" name="" id="email_ipt" placeholder="felipe.maia@sptech.school">
+                        <br> <br>
+                        <p>Senha</p> <br>
+                        <input class="input" type="text" name="" id="senha_ipt" placeholder="Felipe#2026"> <br>
+                        <p class="senhared" id="minimo">Mínimo 8 caracteres</p> <br>
+                        <p class="senhared" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p> <br>
+                        <p class="senhared" id="maiuscula">Mínimo uma letra maiúscula</p> <br>
+                        <p class="senhared" id="minuscula">Mínimo uma letra minúscula</p> <br>
+                        <p class="senhared" id="numero">Contenha um número</p> <br> <br> <br>
+                        <p>Confirmar senha</p> <br>
+                        <input class="input" type="text" name="" id="confirmar_ipt" placeholder="Felipe#2026"> <br>
+                        <p>Sua nota de interesse ao tema do site</p> <br>
+                        <input class="input" type="text" name="" id="nota_antes_ipt" placeholder="0 a 10"> <br>
+                        <button onclick="cadastrar()" class="botao">Cadastre-se</button>
+
+                    </div>
+
+
 
                 </div>
-
-
-
             </div>
-            </div>
-            </div>
+    </div>
 
     </section>
 </body>
@@ -79,60 +80,121 @@
         let senha = senha_ipt.value
         let confirmar = confirmar_ipt
         let nota_antes = Number(nota_antes_ipt.value)
+        let ax_senha_especiais = false
+        let ax_senha_maisucula = false
+        let ax_senha_minuscula = false
+        let ax_senha_numero = false
+        let ax_senha_minimo = false
 
         if (senha.length >= 8) {
             minimo.innerHTML = `<p class="senhagreen" id="minimo">Mínimo 8 caracteres</p>`
+            ax_senha_minimo = true
         }
         else {
             minimo.innerHTML = `<p class="senhared" id="minimo">Mínimo 8 caracteres</p>`
+            ax_senha_minimo = false
         }
-        if (senha.includes('@') || senha.includes('&') || senha.includes('$') || senha.includes('#')) {
-            especiais.innerHTML = `<p class="senhagreen" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p>`
-        }
-        else {
-            especiais.innerHTML = `<p class="senhared" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p>`
-        }
-        if (
-            senha.includes('A') || senha.includes('B') || senha.includes('C') || senha.includes('D') ||
-            senha.includes('E') || senha.includes('F') || senha.includes('G') || senha.includes('H') ||
-            senha.includes('I') || senha.includes('J') || senha.includes('K') || senha.includes('L') ||
-            senha.includes('M') || senha.includes('N') || senha.includes('O') || senha.includes('P') ||
-            senha.includes('Q') || senha.includes('R') || senha.includes('S') || senha.includes('T') ||
-            senha.includes('U') || senha.includes('V') || senha.includes('W') || senha.includes('X') ||
-            senha.includes('Y') || senha.includes('Z')
-        ) {
-            maiuscula.innerHTML = `<p class="senhagreen" id="maiuscula">Mínimo uma letra maiúscula</p>`
-        }
-        else {
-            maiuscula.innerHTML = `<p class="senhared" id="maiuscula">Mínimo uma letra maiúscula</p>`
-        }
-        if (
-            senha.includes('a') || senha.includes('b') || senha.includes('c') || senha.includes('d') ||
-            senha.includes('e') || senha.includes('f') || senha.includes('g') || senha.includes('h') ||
-            senha.includes('i') || senha.includes('j') || senha.includes('k') || senha.includes('l') ||
-            senha.includes('m') || senha.includes('n') || senha.includes('o') || senha.includes('p') ||
-            senha.includes('q') || senha.includes('r') || senha.includes('s') || senha.includes('t') ||
-            senha.includes('u') || senha.includes('v') || senha.includes('w') || senha.includes('x') ||
-            senha.includes('y') || senha.includes('z')
-        ) {
-            minuscula.innerHTML = `<p class="senhagreen" id="minuscula">Mínimo uma letra minúscula</p>`
-        }
-        else {
-            minuscula.innerHTML = `<p class="senhared" id="minuscula">Mínimo uma letra minúscula</p>`
-        }
+        for (let i = 0; i < senha.length; i++) {
 
-
-
-        if (nome.length == 0) {
-            alert('Insira um nome válido para cadastro')
+            if (senha[i] == '@' || senha[i] == '&' || senha[i] == '$' || senha[i] == '#') {
+                especiais.innerHTML = `<p class="senhagreen" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p>`
+                ax_senha_especiais = true
+            }
+            else {
+                especiais.innerHTML = `<p class="senhared" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p>`
+                ax_senha_especiais = false
+            }
         }
-        else if (cpf.length == 11) {
-
+        for (let i = 0; i < senha.length; i++) {
+            if (
+                senha[i] == 'A' || senha[i] == 'B' || senha[i] == 'C' || senha[i] == 'D' ||
+                senha[i] == 'E' || senha[i] == 'F' || senha[i] == 'G' || senha[i] == 'H'
+                || senha[i] == 'I' || senha[i] == 'J' || senha[i] == 'K' || senha[i] == 'L'
+                || senha[i] == 'M' || senha[i] == 'N' || senha[i] == 'O' || senha[i] == 'P'
+                || senha[i] == 'Q' || senha[i] == 'R' || senha[i] == 'S' || senha[i] == 'T'
+                || senha[i] == 'U' || senha[i] == 'V' || senha[i] == 'W' || senha[i] == 'X'
+                || senha[i] == 'Y' || senha[i] == 'Z'
+            ) {
+                maiuscula.innerHTML = `<p class="senhagreen" id="maiuscula">Mínimo uma letra maiúscula</p>`
+                ax_senha_maisucula = true
+            }
+            else {
+                maiuscula.innerHTML = `<p class="senhared" id="maiuscula">Mínimo uma letra maiúscula</p>`
+                ax_senha_maisucula = false
+            }
+        }
+        for (let i = 0; i < senha.length; i++) {
+            if (
+                senha[i] == 'a' || senha[i] == 'b' || senha[i] == 'c' || senha[i] == 'd' ||
+                senha[i] == 'e' || senha[i] == 'f' || senha[i] == 'g' || senha[i] == 'h'
+                || senha[i] == 'i' || senha[i] == 'j' || senha[i] == 'k' || senha[i] == 'l'
+                || senha[i] == 'm' || senha[i] == 'n' || senha[i] == 'o' || senha[i] == 'p'
+                || senha[i] == 'q' || senha[i] == 'r' || senha[i] == 's' || senha[i] == 't'
+                || senha[i] == 'u' || senha[i] == 'v' || senha[i] == 'w' || senha[i] == 'x'
+                || senha[i] == 'y' || senha[i] == 'z'
+            ) {
+                minuscula.innerHTML = `<p class="senhagreen" id="minuscula">Mínimo uma letra minúscula</p>`
+                ax_senha_minuscula = true
+            }
+            else {
+                minuscula.innerHTML = `<p class="senhared" id="minuscula">Mínimo uma letra minúscula</p>`
+                ax_senha_minuscula = false
+            }
 
         }
-        else {
-            alert('Insira um CPF válido para cadastro')
+        for (let i = 0; i < senha.length; i++) {
+            if (senha[i] == 0 || senha[i] == 1 || senha[i] == 2 || senha[i] == 3 ||
+                senha[i] == 4 || senha[i] == 5 || senha[i] == 6 || senha[i] == 7 ||
+                senha[i] == 8 || senha[i] == 9
+            ) {
+                numero.innerHTML = `   <p class="senhagreen" id="numero">Contenha um número</p> <br> <br> <br>`
+                ax_senha_numero = true
+            }
+            else {
+                numero.innerHTML = `   <p class="senhared" id="numero">Contenha um número</p> <br> <br> <br>`
+                ax_senha_numero = false
+            }
+
+            if (nome.length == 0) {
+                alert('Insira um nome válido para cadastro')
+            } else {
+
+                if (cpf.length !== 11) {
+
+                    alert('Insira um CPF válido para cadastro')
+
+                }
+                else {
+                    if (email.length == 0) {
+                        alert('Insira um email válido para cadastro')
+                    }
+                    else {
+                        if (nota_antes >= 0 && nota_antes <= 10) {
+                            if (ax_senha_especiais == true && ax_senha_maisucula == true &&
+                                ax_senha_minimo == true && ax_senha_minuscula == true &&
+                                ax_senha_numero == true
+                            ) {
+                                if (senha == confirmar) {
+
+                                    alert('Cadastro realizado com sucesso!')
+                                    href = "login.html"
+                                }
+                                else {
+                                    alert('A senha deve ser igual em ambas as inputs')
+                                }
+                            }
+                            else{
+                                alert('Todos os critérios da senha ainda não foram atendidos')
+                            }
+
+                        }
+                        else {
+                            alert('Insira uma nota válida para cadastro')
+                        }
+                    }
+
+                }
+            }
         }
-       
     }
 </script>
