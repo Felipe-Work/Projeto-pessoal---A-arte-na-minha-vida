@@ -72,37 +72,41 @@
 
 </html>
 <script>
+    let ax_senha_especiais = false
+    let ax_senha_maisucula = false
+    let ax_senha_minuscula = false
+    let ax_senha_numero = false
+    let ax_senha_minimo = false
     function cadastrar() {
 
         let email = email_ipt.value
         let nome = nome_ipt.value
         let cpf = cpf_ipt.value
         let senha = senha_ipt.value
-        let confirmar = confirmar_ipt
+        let confirmar = confirmar_ipt.value
         let nota_antes = Number(nota_antes_ipt.value)
-        let ax_senha_especiais = false
-        let ax_senha_maisucula = false
-        let ax_senha_minuscula = false
-        let ax_senha_numero = false
-        let ax_senha_minimo = false
+        ax_senha_especiais = false
+        ax_senha_maisucula = false
+        ax_senha_minuscula = false
+        ax_senha_numero = false
+        ax_senha_minimo = false
+        let especiais = document.getElementById("especiais")
+        let maiuscula = document.getElementById("maiuscula")
+        let minuscula = document.getElementById("minuscula")
+        let numero = document.getElementById("numero")
+        let minimo = document.getElementById("minimo")
+
 
         if (senha.length >= 8) {
-            minimo.innerHTML = `<p class="senhagreen" id="minimo">Mínimo 8 caracteres</p>`
+
             ax_senha_minimo = true
-        }
-        else {
-            minimo.innerHTML = `<p class="senhared" id="minimo">Mínimo 8 caracteres</p>`
-            ax_senha_minimo = false
         }
         for (let i = 0; i < senha.length; i++) {
 
             if (senha[i] == '@' || senha[i] == '&' || senha[i] == '$' || senha[i] == '#') {
-                especiais.innerHTML = `<p class="senhagreen" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p>`
+
                 ax_senha_especiais = true
-            }
-            else {
-                especiais.innerHTML = `<p class="senhared" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p>`
-                ax_senha_especiais = false
+                break
             }
         }
         for (let i = 0; i < senha.length; i++) {
@@ -115,12 +119,9 @@
                 || senha[i] == 'U' || senha[i] == 'V' || senha[i] == 'W' || senha[i] == 'X'
                 || senha[i] == 'Y' || senha[i] == 'Z'
             ) {
-                maiuscula.innerHTML = `<p class="senhagreen" id="maiuscula">Mínimo uma letra maiúscula</p>`
+
                 ax_senha_maisucula = true
-            }
-            else {
-                maiuscula.innerHTML = `<p class="senhared" id="maiuscula">Mínimo uma letra maiúscula</p>`
-                ax_senha_maisucula = false
+                break
             }
         }
         for (let i = 0; i < senha.length; i++) {
@@ -133,68 +134,88 @@
                 || senha[i] == 'u' || senha[i] == 'v' || senha[i] == 'w' || senha[i] == 'x'
                 || senha[i] == 'y' || senha[i] == 'z'
             ) {
-                minuscula.innerHTML = `<p class="senhagreen" id="minuscula">Mínimo uma letra minúscula</p>`
+
                 ax_senha_minuscula = true
-            }
-            else {
-                minuscula.innerHTML = `<p class="senhared" id="minuscula">Mínimo uma letra minúscula</p>`
-                ax_senha_minuscula = false
+                break
             }
 
         }
         for (let i = 0; i < senha.length; i++) {
-            if (senha[i] == 0 || senha[i] == 1 || senha[i] == 2 || senha[i] == 3 ||
-                senha[i] == 4 || senha[i] == 5 || senha[i] == 6 || senha[i] == 7 ||
-                senha[i] == 8 || senha[i] == 9
+            if (senha[i] == '0' || senha[i] == '1' || senha[i] == '2' || senha[i] == '3' ||
+                senha[i] == '4' || senha[i] == '5' || senha[i] == '6' || senha[i] == '7' ||
+                senha[i] == '8' || senha[i] == '9'
             ) {
-                numero.innerHTML = `   <p class="senhagreen" id="numero">Contenha um número</p> <br> <br> <br>`
+
                 ax_senha_numero = true
+                break
+            }
+        }
+
+        if (ax_senha_especiais == false) {
+            especiais.innerHTML = `<p class="senhared" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p>`
+        } else {
+            especiais.innerHTML = `<p class="senhagreen" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p>`
+        }
+        if (ax_senha_maisucula == false) {
+            maiuscula.innerHTML = `<p class="senhared" id="maiuscula">Mínimo uma letra maiúscula</p>`
+        } else {
+            maiuscula.innerHTML = `<p class="senhagreen" id="maiuscula">Mínimo uma letra maiúscula</p>`
+        }
+        if (ax_senha_minimo == false) {
+            minimo.innerHTML = `<p class="senhared" id="minimo">Mínimo 8 caracteres</p>`
+        } else {
+            minimo.innerHTML = `<p class="senhagreen" id="minimo">Mínimo 8 caracteres</p>`
+        }
+        if (ax_senha_minuscula == false) {
+            minuscula.innerHTML = `<p class="senhared" id="minuscula">Mínimo uma letra minúscula</p>`
+        } else {
+            minuscula.innerHTML = `<p class="senhagreen" id="minuscula">Mínimo uma letra minúscula</p>`
+        }
+        if (ax_senha_numero == false) {
+            numero.innerHTML = `<p class="senhared" id="numero">Contenha um número</p>`
+        } else {
+            numero.innerHTML = `<p class="senhagreen" id="numero">Contenha um número</p>`
+        }
+        if (nome.length == 0) {
+            alert('Insira um nome válido para cadastro')
+        } else {
+
+            if (cpf.length !== 11) {
+
+                alert('Insira um CPF válido para cadastro')
+
             }
             else {
-                numero.innerHTML = `   <p class="senhared" id="numero">Contenha um número</p> <br> <br> <br>`
-                ax_senha_numero = false
-            }
-
-            if (nome.length == 0) {
-                alert('Insira um nome válido para cadastro')
-            } else {
-
-                if (cpf.length !== 11) {
-
-                    alert('Insira um CPF válido para cadastro')
-
+                if (email.length == 0) {
+                    alert('Insira um email válido para cadastro')
                 }
                 else {
-                    if (email.length == 0) {
-                        alert('Insira um email válido para cadastro')
-                    }
-                    else {
-                        if (nota_antes >= 0 && nota_antes <= 10) {
-                            if (ax_senha_especiais == true && ax_senha_maisucula == true &&
-                                ax_senha_minimo == true && ax_senha_minuscula == true &&
-                                ax_senha_numero == true
-                            ) {
-                                if (senha == confirmar) {
+                    if (nota_antes >= 0 && nota_antes <= 10) {
+                        if ((ax_senha_especiais == true && ax_senha_maisucula == true &&
+                            ax_senha_minimo == true && ax_senha_minuscula == true &&
+                            ax_senha_numero == true)
+                        ) {
+                            if (senha == confirmar) {
 
-                                    alert('Cadastro realizado com sucesso!')
-                                    href = "login.html"
-                                }
-                                else {
-                                    alert('A senha deve ser igual em ambas as inputs')
-                                }
+                                alert('Cadastro realizado com sucesso!')
+                                window.location.href = "login.html"
                             }
-                            else{
-                                alert('Todos os critérios da senha ainda não foram atendidos')
+                            else {
+                                alert('A senha deve ser igual em ambas as inputs')
                             }
-
                         }
                         else {
-                            alert('Insira uma nota válida para cadastro')
+                            alert('Todos os critérios da senha ainda não foram atendidos')
                         }
-                    }
 
+                    }
+                    else {
+                        alert('Insira uma nota válida para cadastro')
+                    }
                 }
+
             }
         }
     }
+
 </script>
