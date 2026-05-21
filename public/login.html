@@ -29,24 +29,24 @@
         </section>
     </header>
     <div class="wallpaperL">
-    <section class="artes" id="artes" style="background-color: #1C1C1C;">
-        <h3 class="titulo">Login</h3>
+        <section class="artes" id="artes" style="background-color: #1C1C1C;">
+            <h3 class="titulo">Login</h3>
 
-        <div class="box-container">
-            <div class="box2">
-                <h2 class="titulo">Login</h2>
-                <div class="box-container2">
-                    <p> Email </p> <br>
-                    <input class="input" type="text" name="" id="email_ipt" placeholder="felipe.maia@sptech.school">
-                    <br> <br>
-                    <p>Senha</p> <br>
-                    <input class="input" type="text" name="" id="senha_ipt" placeholder="Felipe#2026"> <br>
-                    <button onclick="login()" class="botao">Login</button>
+            <div class="box-container">
+                <div class="box2">
+                    <h2 class="titulo">Login</h2>
+                    <div class="box-container2">
+                        <p> Email </p> <br>
+                        <input class="input" type="text" name="" id="email_ipt" placeholder="felipe.maia@sptech.school">
+                        <br> <br>
+                        <p>Senha</p> <br>
+                        <input class="input" type="text" name="" id="senha_ipt" placeholder="Felipe#2026"> <br>
+                        <button onclick="login()" class="botao">Login</button>
 
+                    </div>
                 </div>
             </div>
-</div>
-    </section>
+        </section>
 </body>
 
 </html>
@@ -55,61 +55,61 @@
 
         let email = email_ipt.value
         let senha = senha_ipt.value
-    
+
         if (email.length == 0) {
             alert('Insira um email válido para login')
         }
-        else if (senha.length == 0){
-                     alert('Insira uma senha válida para login')
+        else if (senha.length == 0) {
+            alert('Insira uma senha válida para login')
         }
-        else{
+        else {
             fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: email,
-                senhaServer: senha
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: email,
+                    senhaServer: senha
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.id;
+
+
+                        setTimeout(function () {
+                            window.location.href = "principal.html";
+                        }, 1000); // apenas para exibir o loading
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
             })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
 
-            if (resposta.ok) {
-                console.log(resposta);
+            return false;
+        }
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
-                    setTimeout(function () {
-                        window.location.href = "principal.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
     }
 
-  
-        }
-       
-    
+
 </script>
