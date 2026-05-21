@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wdth,wght@75..100,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <section>
+            <a href="index.html" class="logo">
+                <img src="pincel.png" alt="logo" width="50px" height="50px">
+            </a>
+
+            <nav class="navbar">
+                <a href="index.html">Home</a>
+                <a href="cadastro.html">Cadastro</a>
+                <a href="login.html">Login</a>
+            </nav>
+
+
+        </section>
+    </header>
+    <div>
+        <section class="artes" id="artes" style="background-color: #1C1C1C;">
+
+            <h3 class="titulo">Cadastro</h3>
+
+
+            <div class="box-container">
+                <div class="box2">
+                    <h2 class="titulo">Questionário</h2>
+                    <div class="box-container2">
+
+                        <p>nota de interesse ao tema do site após a leitura</p> <br>
+                        <input class="input" type="" name="" id="nova_nota_ipt" placeholder="0 a 10"> <br> <br>
+                        <br>
+                        <p>O que você mais gostou no site?</p> <br>
+                        <input class="input" type="text" name="" id="gostou_ipt" placeholder="Da trajetória pois...">
+                        <br> <br> <br>
+                        <p>pretende praticar mais atividades artísticas para o bem-estar emocional?</p> <br>
+                        <select class="input" name="" id="booleana_ipt">
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                        </select>
+                        <br> <br>
+                        <button onclick="confirmar()" class="botao">Confirmar respostas</button>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+    </div>
+
+    </section>
+</body>
+
+</html>
+<script>
+    function confirmar() {
+        let nova_nota = Number(nova_nota_ipt.value)
+        let booleana = booleana_ipt.value
+        let gostou = gostou_ipt.value
+
+        if (nova_nota >= 0 && nova_nota <= 10) {
+            if (gostou.length > 0) {
+                
+               window.location.href="dashboard.html"
+}
+            else {
+                alert('Insira um texto válido!')
+            }
+        }
+        else {
+            alert('Insira uma nota válida!')
+        }
+    }
+</script>

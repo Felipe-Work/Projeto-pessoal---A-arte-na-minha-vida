@@ -4,14 +4,15 @@ use projeto_individual;
 create table usuarios (
 id int primary key auto_increment,
 nome varchar (100),
-cpf char (11),
+cpf char (11) unique,
 email varchar(145),
 senha varchar (50)
 );
 
 create table questionario (
 id int primary key auto_increment,
-pergunta varchar(200)
+pergunta1 varchar(200),
+pergunta2 varchar(200)
 );
 
 create table notas(
@@ -26,7 +27,9 @@ create table usuario_resposta (
 fkUsuarios int,
 fkQuestionario int,
 primary key (fkUsuarios, fkQuestionario),
-resposta varchar(100),
+gostou varchar(100),
+praticara char(3),
+dataHora datetime default current_timestamp,
 constraint fkRespostaUsuario foreign key (fkUsuarios) references usuarios(id),
 constraint fkRespostaQuestionario foreign key (fkQuestionario) references questionario(id)
 );
