@@ -67,14 +67,42 @@
 </html>
 <script>
     function confirmar() {
-        let nova_nota = Number(nova_nota_ipt.value)
+        let nota_depois = Number(nova_nota_ipt.value)
         let booleana = booleana_ipt.value
         let gostou = gostou_ipt.value
 
-        if (nova_nota >= 0 && nova_nota <= 10) {
+        if (nota_depois >= 0 && nota_depois <= 10) {
             if (gostou.length > 0) {
-                
-               window.location.href="dashboard.html"
+                    fetch("/usuarios/cadastrar", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify({
+                                        // crie um atributo que recebe o valor recuperado aqui 
+                                        // Agora vá para o arquivo routes/usuario.js 
+                                        nota_depoisServer: nota_depois,
+                                        booleanaServer: booleana,
+                                        gostouServer: gostou,
+                                    }),
+                                })
+                                    .then(function (resposta) {
+                                        console.log("resposta: ", resposta);
+                                        if (resposta.ok) {
+                                          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...")
+                                            setTimeout(() => {
+                                                window.location.href = "dashboard/dashboard.html";
+                                            }, "2000");
+                                            limparFormulario();
+                                            finalizarAguardar();
+                                        } else {
+                                            throw "Houve um erro ao tentar realizar o cadastro!";
+                                        }
+                                    })
+                                    .catch(function (resposta) {
+                                        console.log(`#ERRO: ${resposta}`);
+                                    });
+                                return false;
 }
             else {
                 alert('Insira um texto válido!')
