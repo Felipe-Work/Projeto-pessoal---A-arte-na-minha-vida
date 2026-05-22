@@ -56,7 +56,7 @@ function cadastrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var cpf = req.body.cpfServer;
-    var nota_antes = req.body.nota_antesServer;
+    
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -70,7 +70,7 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, cpf, nota_antes)
+        usuarioModel.cadastrar(nome, email, senha, cpf)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -87,8 +87,39 @@ function cadastrar(req, res) {
             );
     }
 }
+function questionario(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nota_antes = req.body.nota_antesServer
+    var nota_depois = req.body.nota_depoisServer;
+    var booleana = req.body.booleanaServer;
+    var gostou = req.body.gostouServer;
+    var ID_USUARIO = req.body.ID_USUARIOServer;
+   
+    
+
+    // Faça as validações dos valores
+   
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.questionario(nota_antes, nota_depois, booleana, gostou, ID_USUARIO)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao responder o questionário! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    questionario
 }
