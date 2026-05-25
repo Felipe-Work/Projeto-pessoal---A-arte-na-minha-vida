@@ -249,3 +249,34 @@ section {
     background-size:cover;
     
 }
+
+.footer{
+text-align: center;
+border-top: var(--borda);
+
+}
+.footer .share{
+padding: 1rem 0;
+}
+.footer .share img {
+    margin: 0.3rem;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 1rem;
+}
+.footer .share img:hover{
+background-color: var(--cor-principal);
+}
+
+.pinturas {
+    border-right: var(--borda);
+}
+
+.possuiconta{
+    color:var(--cor-principal);
+    cursor: pointer;
+    display: inline-block;
+}
+.possuiconta:hover{
+     letter-spacing: 0.1rem;
+}
