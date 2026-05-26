@@ -71,14 +71,16 @@
 
         <div class="box-container">
             <div class="box">
-                <img src="jinx.jpg" alt="jinx" width="300rem" height="400rem">
-                <h3>Jinx - Arcane</h3>
+                <img src="jinx.jpg" alt="jinx" width="300rem" height="400rem" id="img_desenho">
+                <h3 id="titulo_desenho">Jinx - Arcane</h3>
+                <button class="botao" onclick="sortear_desenho()">Sortear desenho</button>
             </div>
 
             <div class="box-container">
                 <div class="box">
-                    <img src="tela1.jpg" alt="tela1" width="300rem" height="400rem">
-                    <h3>Minha primerira tela</h3>
+                    <img src="tela1.jpg" alt="tela1" width="300rem" height="400rem" id="img_tela">
+                    <h3 id="titulo_tela">Minha primeira tela</h3>
+                    <button class="botao" onclick="sortear_tela()">Sortear tela</button>
                 </div>
 
             </div>
@@ -104,3 +106,28 @@
 </body>
 
 </html>
+<script>
+    let imagens_tela = ['tela1.jpg','jinx.jpg']
+    let nome_tela = ['Minha primeira tela', 'Tela do pôr do sol']
+    let imagens_desenho = []
+    let nome_desenho = []
+
+function sortear_tela(){
+let aleatorio_tela = Math.random() * 2
+
+if(aleatorio_tela < 1){
+    titulo_tela.innerHTML = `${nome_tela[0]}`
+    img_tela.src = `${imagens_tela[0]}`
+}
+else{
+    titulo_tela.innerHTML = `${nome_tela[1]}`
+    img_tela.src = `${imagens_tela[1]}`
+}
+
+}
+
+function sortear_desenho(){
+
+}
+
+</script>
