@@ -64,7 +64,7 @@ section {
 }
 
 .home-container {
-    background: url("homeimagem2.jpeg");
+    background: url("imagens/homeimagem2.jpeg");
     background-position: center;
     background-size: cover;
 }
@@ -239,12 +239,12 @@ section {
 }
 
 .wallpaperC {
-   background: url("cadastro\ wallpaper.avif");
+   background: url("imagens/cadastro\ wallpaper.avif");
     background-position: center;
     background-size: cover;
 }
 .wallpaperL {
-   background: url("wallpaper\ login.jpg");
+   background: url("imagens/wallpaper\ login.jpg");
     background-position: center;
     background-size:cover;
     
