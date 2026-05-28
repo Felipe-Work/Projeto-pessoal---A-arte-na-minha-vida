@@ -249,7 +249,24 @@ section {
     background-size:cover;
     
 }
-
+.pinturas p{
+    color: white;
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 1.8;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+}
+.pinturas p img {
+    margin: 0.3rem;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 0.5rem;
+}
+.pinturas p img:hover{
+    background-color: var(--cor-principal);
+}
 .footer{
 text-align: center;
 border-top: var(--borda);
@@ -258,11 +275,16 @@ border-top: var(--borda);
 .footer .share{
 padding: 1rem 0;
 }
+.footer .share p{
+color: white;
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 1.8;
+}
 .footer .share img {
     margin: 0.3rem;
     cursor: pointer;
     border-radius: 50%;
-    padding: 1rem;
 }
 .footer .share img:hover{
 background-color: var(--cor-principal);
@@ -271,6 +293,7 @@ background-color: var(--cor-principal);
 .pinturas {
     border-right: var(--borda);
 }
+
 
 .possuiconta{
     color:var(--cor-principal);
