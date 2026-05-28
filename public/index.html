@@ -108,10 +108,10 @@
 
 </html>
 <script>
-    let imagens_tela = ['imagens/tela1.jpg','imagens/jinx.jpg']
+    let imagens_tela = ['imagens/tela1.jpg','imagens/tela2.jpg']
     let nome_tela = ['Minha primeira tela', 'Tela do pôr do sol']
-    let imagens_desenho = []
-    let nome_desenho = []
+    let imagens_desenho = ['imagens/jinx.jpg', 'imagens/12kakashi.jpg', 'imagens/9narutosasuke.jpg']
+    let nome_desenho = ['Jinx - Arcane', 'Kakashi', 'Naruto e Sasuke']
 
 function sortear_tela(){
 let aleatorio_tela = Math.random() * 2
@@ -129,6 +129,20 @@ else{
 
 function sortear_desenho(){
 
+let aleatorio_desenho = Math.random() * 3
+
+if(aleatorio_desenho < 1){
+    titulo_desenho.innerHTML = `${nome_desenho[0]}`
+    img_desenho.src = `${imagens_desenho[0]}`
+}
+else if(aleatorio_desenho < 2){
+    titulo_desenho.innerHTML = `${nome_desenho[1]}`
+    img_desenho.src = `${imagens_desenho[1]}`
+}
+else {
+    titulo_desenho.innerHTML = `${nome_desenho[2]}`
+    img_desenho.src = `${imagens_desenho[2]}`
+}
 }
 
 </script>
