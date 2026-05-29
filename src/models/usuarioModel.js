@@ -39,8 +39,31 @@ function questionario(nota_antes, nota_depois, booleana, gostou, ID_USUARIO) {
     return resultado, resultado2;
 }
 
+function buscarKPIs(){
+
+   console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ")
+    var instrucaoSql = `
+        select * from ViewKPIS;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+function buscarGraficos(){
+
+ console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ")
+    var instrucaoSql = `
+        select * from ViewGraficos;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
-    questionario
+    questionario,
+    buscarKPIs,
+    buscarGraficos
 };

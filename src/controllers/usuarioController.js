@@ -118,8 +118,48 @@ function questionario(req, res) {
             );
     }
 
+    function buscarKPIs (req, res){
+
+        usuarioModel.buscarKPIs()
+        .then(
+                function (resultado) {
+                    res.json(resultado[0]);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao responder ao buscar as kpis's! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+      function buscarGraficos (req, res){
+
+        usuarioModel.buscarGraficos()
+        .then(
+                function (resultado) {
+                    res.json(resultado[0]);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao responder o buscar os gráficos! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
 module.exports = {
     autenticar,
     cadastrar,
-    questionario
+    questionario,
+    buscarKPIs,
+    buscarGraficos
 }

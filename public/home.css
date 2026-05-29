@@ -79,12 +79,12 @@ section {
     font-size: 6rem;
 }
 
-.content h3 span{
+.content h3 span {
     color: #4169E1;
     font-size: 7rem;
     -webkit-text-stroke-color: white;
     -webkit-text-stroke-width: 0.1rem;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .content p {
@@ -93,16 +93,16 @@ section {
     font-weight: 200;
     line-height: 1.8;
     padding: 1rem 0;
-  
+
 }
 
-.home-container .content p{
+.home-container .content p {
     color: white;
     font-size: 2rem;
     font-weight: 400;
     line-height: 1.8;
     padding: 1rem 1rem;
-  background-color:#4169E1;
+    background-color: #4169E1;
 }
 
 .home-container section {
@@ -158,6 +158,7 @@ section {
     border: var(--borda);
     padding: 5rem;
 }
+
 .artes .box-container .box2 {
     text-align: start;
     border: var(--borda);
@@ -171,15 +172,18 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
+
 }
+
 .artes .box-container2 p {
     font-size: 1.4rem;
-    
+
 }
+
 .senhared {
     color: red;
 }
+
 .senhagreen {
     color: green;
 }
@@ -187,8 +191,8 @@ section {
 .input {
     height: 4rem;
     width: 50rem;
-     text-transform: none;
-     
+    text-transform: none;
+
 }
 
 
@@ -217,7 +221,7 @@ section {
     text-transform: uppercase;
 }
 
-.saiba-texto p{
+.saiba-texto p {
     font-size: 1.8rem;
     color: white;
     margin-bottom: 0.7rem;
@@ -239,17 +243,19 @@ section {
 }
 
 .wallpaperC {
-   background: url("imagens/cadastro\ wallpaper.avif");
+    background: url("imagens/cadastro\ wallpaper.avif");
     background-position: center;
     background-size: cover;
 }
+
 .wallpaperL {
-   background: url("imagens/wallpaper\ login.jpg");
+    background: url("imagens/wallpaper\ login.jpg");
     background-position: center;
-    background-size:cover;
-    
+    background-size: cover;
+
 }
-.pinturas p{
+
+.pinturas p {
     color: white;
     font-size: 2rem;
     font-weight: 200;
@@ -258,36 +264,43 @@ section {
     display: flex;
     align-items: center;
 }
+
 .pinturas p img {
     margin: 0.3rem;
     cursor: pointer;
     border-radius: 50%;
     padding: 0.5rem;
 }
-.pinturas p img:hover{
+
+.pinturas p img:hover {
     background-color: var(--cor-principal);
 }
-.footer{
-text-align: center;
-border-top: var(--borda);
+
+.footer {
+    text-align: center;
+    border-top: var(--borda);
 
 }
-.footer .share{
-padding: 1rem 0;
+
+.footer .share {
+    padding: 1rem 0;
 }
-.footer .share p{
-color: white;
+
+.footer .share p {
+    color: white;
     font-size: 2rem;
     font-weight: 200;
     line-height: 1.8;
 }
+
 .footer .share img {
     margin: 0.3rem;
     cursor: pointer;
     border-radius: 50%;
 }
-.footer .share img:hover{
-background-color: var(--cor-principal);
+
+.footer .share img:hover {
+    background-color: var(--cor-principal);
 }
 
 .pinturas {
@@ -295,12 +308,69 @@ background-color: var(--cor-principal);
 }
 
 
-.possuiconta{
-    color:var(--cor-principal);
+.possuiconta {
+    color: var(--cor-principal);
     cursor: pointer;
     display: inline-block;
 }
-.possuiconta:hover{
-     letter-spacing: 0.1rem;
+
+.possuiconta:hover {
+    letter-spacing: 0.1rem;
 }
 
+.dashboard {
+    padding: 40px;
+    min-height: 200vh;
+    background: var(--fundo);
+}
+
+.tituloDashboard {
+    font-size: 42px;
+    margin-bottom: 35px;
+    color: white;
+}
+
+.kpis {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: white;
+    width: 250px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+    color: #777;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.card span {
+    font-size: 38px;
+    font-weight: bold;
+    color: var(--cor-principal)
+}
+
+.subInfo {
+    margin-top: 8px;
+    color: #999;
+    font-size: 14px;
+}
+
+.graficoContainer {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+canvas {
+    width: 100px;
+    height: 1000px;
+}

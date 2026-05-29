@@ -18,4 +18,13 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.get("/kpis", function (req, res) {
+    usuarioController.buscarKPIs(req, res);
+});
+
+router.get("/grafico", function (req, res) {
+    usuarioController.buscarGraficos(req, res);
+});
+
+
 module.exports = router;
