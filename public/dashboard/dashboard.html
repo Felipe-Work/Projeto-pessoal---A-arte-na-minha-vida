@@ -18,21 +18,23 @@
 
     <header class="header">
         <section>
-            <a href="index.html" class="logo">
+            <a href="../index.html" class="logo">
                 <img src="../imagens/pincel.png" alt="logo" width="50px" height="50px">
             </a>
 
             <nav class="navbar">
                 <a href="../index.html">Home</a>
-                <a href="cadastro.html">Cadastro</a>
-                <a href="login.html">Login</a>
+                <a href="../principal.html">Importância da Arte</a>
+                <a href="../principale.html">Inspirações</a>
+                <a href="../cadastro.html">Cadastro</a>
+                <a href="../login.html">Login</a>
             </nav>
 
 
         </section>
     </header>
     <div class="dashboard">
-<br> <br> <br> <br> <br>
+        <br> <br> <br> <br> <br>
         <h1 class="tituloDashboard"> Dashboard </h1>
 
         <div class="kpis">
@@ -58,7 +60,8 @@
             </div>
 
         </div>
-
+        <br> <br> <br> <br>
+        <h2 class="tituloDashboard" style="display: flex; justify-content: center;">gráfico - notas dos usuários</h2>
         <div class="graficoContainer">
             <canvas id="myChartCanvas"></canvas>
         </div>
@@ -78,7 +81,7 @@
 </html>
 
 <script>
-  
+
     let proximaAtualizacao;
 
     window.onload = carregarDashboard(); obterDadosGrafico();
@@ -116,7 +119,7 @@
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico() {
 
-    
+
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
@@ -126,7 +129,7 @@
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                   
+
 
                     plotarGrafico(resposta);
 
@@ -157,7 +160,10 @@
                 label: 'Nota Antes',
                 data: [],
                 fill: false,
-                borderColor: 'rgb(50,205,50)',
+                borderColor: 'rgb(34,139,34)',
+                backgroundColor: 'rgb(34,139,34)',
+                pointBackgroundColor: 'rgb(34,139,34)',
+                pointBorderColor: 'rgb(34,139,34)',
                 tension: 0.1
             },
             {
@@ -165,6 +171,9 @@
                 data: [],
                 fill: false,
                 borderColor: 'rgb(0,0,205)',
+                backgroundColor: 'rgb(0,0,205)',
+                pointBackgroundColor: 'rgb(0,0,205)',
+                pointBorderColor: 'rgb(0,0,205)',
                 tension: 0.1
             }]
         };
@@ -201,7 +210,7 @@
             config
         );
 
-        setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+        setTimeout(() => atualizarGrafico(dados, myChart), 60000);
     }
 
 
@@ -218,7 +227,7 @@
             if (response.ok) {
                 response.json().then(function (response) {
 
-                    
+
                     // alertar(response, idAquario);
                     console.log(`Dados recebidos: ${JSON.stringify(response)}`);
                     console.log(`Dados atuais do gráfico:`);
@@ -226,29 +235,30 @@
                     console.log("novo registro: " + response.nome)
                     console.log("novo registro: " + response.nota_antes)
 
-                   
-                        // tirando e colocando valores no gráfico
-                        dados.labels.shift(); // apagar o primeiro
-                        dados.labels.push(response.nome); // incluir um novo momento
+                    dados.labels = [];
+                    dados.datasets[0].data = [];
+                    dados.datasets[1].data = [];
 
-                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                        dados.datasets[0].data.push(response.nota_antes); // incluir uma nova medida de umidade
+                    for (let i = response.length - 1; i >= 0; i--) {
 
-                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[1].data.push(response.nota_depois); // incluir uma nova medida de temperatura
+                        let registro = response[i];
 
-                        myChart.update();
-                        carregarDashboard();
-                    
+                        dados.labels.push(registro.nome);
+                        dados.datasets[0].data.push(registro.nota_antes);
+                        dados.datasets[1].data.push(registro.nota_depois);
+
+                    }
+                    myChart.update();
+                    carregarDashboard();
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
-                    
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 10000);
+
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 10000);
             }
         })
             .catch(function (error) {

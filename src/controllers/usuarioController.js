@@ -142,7 +142,7 @@ function questionario(req, res) {
         usuarioModel.buscarGraficos()
         .then(
                 function (resultado) {
-                    res.json(resultado[0]);
+                    res.json(resultado);
                 }
             ).catch(
                 function (erro) {
