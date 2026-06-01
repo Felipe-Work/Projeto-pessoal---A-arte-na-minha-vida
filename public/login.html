@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Login</title>
     <link rel="stylesheet" href="home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,33 +28,43 @@
 
         </section>
     </header>
-    <div class="wallpaperL">
-        <section class="artes" id="artes" style="background-color: #1C1C1C;">
-            <h3 class="titulo"></h3>
 
-            <div class="box-container">
-                <div class="box2">
-                    <h2 class="titulo">Login</h2>
-                    <div class="box-container2">
-                        <p> Email </p> <br>
+
+    <div class="CL">
+        <main class="containerCL">
+            <div>
+                <div class="textos">
+                    <h1 class="cor">Login</h1>
+                    <p>Email</p>
+                    <div class="inputBox">
                         <input class="input" type="text" name="" id="email_ipt" placeholder="felipe.maia@sptech.school">
-                        <br> <br>
-                        <p>Senha</p> <br>
-                        <input class="input" type="password" name="" id="senha_ipt" placeholder="Felipe#2026"> <br> <br>
-                         <p>ainda não possui uma conta? faça o <a href="cadastro.html" class="possuiconta">cadastro</a></p>
-                        <button onclick="login()" class="botao">Login</button>
-
+                    </div>
+                    <p>Senha</p>
+                    <div class="inputBox">
+                        <input class="input" type="password" name="" id="senha_ipt" placeholder="#SPTech1SIS">
+                    </div>
+                    <button onclick="login()" class="botaoLogin">Login</button>
+                    <div class="registro">
+                        <p>ainda não possui uma conta? <a href="cadastro.html" class="possuiconta">cadastre-se</a></p>
                     </div>
                 </div>
             </div>
-        </section>
-         <section class="footer">
-         <div class="share">
+        </main>
+    </div>
+
+
+    <section class="footer">
+        <div class="share">
             <p>Contato:</p>
-           <a href="https://www.instagram.com/itz_lipe01/"><img src="imagens/instagram-logo-instagram-icon-transparent-free-png.webp" alt="instagram" width="100" height="100" ></a> 
-         </div>
+            <a href="https://www.instagram.com/itz_lipe01/"><img
+                    src="imagens/instagram-logo-instagram-icon-transparent-free-png.webp" alt="instagram" width="100"
+                    height="100"></a>
+        </div>
     </section>
 </body>
+
+
+
 
 </html>
 <script>
@@ -92,7 +102,7 @@
                         sessionStorage.NOME_USUARIO = json.nome;
                         sessionStorage.ID_USUARIO = json.id;
 
-
+alert("Login realizado com sucesso! Redirecionando para a página principal...")
                         setTimeout(function () {
                             window.location.href = "principal.html";
                         }, 1000); // apenas para exibir o loading
@@ -100,7 +110,7 @@
                     });
 
                 } else {
-
+                    alert("Email ou senha inválidos!")
                     console.log("Houve um erro ao tentar realizar o login!");
 
                     resposta.text().then(texto => {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Questionário</title>
     <link rel="stylesheet" href="home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,48 +30,63 @@
 
         </section>
     </header>
-    <div>
-        <section class="artes" id="artes" style="background-color: #1C1C1C;">
 
-            
-<h3 class="titulo">.</h3>
 
-            <div class="box-container">
-                <div class="box2">
-                    <h2 class="titulo">Questionário</h2>
-                    <div class="box-container2">
-                        <p>Sua nota de interesse ao tema do site antes da leitura</p>
-                        <input type="text" name="" id="antiga_nota_ipt" placeholder="0 a 10" class="input"> <br> <br>
-                        <p>Sua nota de interesse ao tema do site após a leitura</p> <br>
-                        <input class="input" type="" name="" id="nova_nota_ipt" placeholder="0 a 10"> <br> <br>
-                        <br>
-                        <p>O que você mais gostou no site?</p> <br>
+
+    <br> <br> <br> <br>
+    <div class="CL">
+        <main class="containerCL">
+           <div>
+                <div class="textos">
+                    <h1 class="cor">Questionário</h1>
+                    <p>Sua nota de interesse ao tema do site antes da leitura</p>
+                    <div class="inputBox">
+                        <input type="text" name="" id="antiga_nota_ipt" placeholder="0 a 10" class="input">
+                    </div>
+                    <p>Sua nota de interesse ao tema do site após a leitura</p>
+                    <div class="inputBox">
+                        <input class="input" type="" name="" id="nova_nota_ipt" placeholder="0 a 10">
+                    </div>
+                    <p>O que você mais gostou no site?</p>
+                    <div class="inputBox">
                         <input class="input" type="text" name="" id="gostou_ipt" placeholder="Da trajetória pois...">
-                        <br> <br> <br>
-                        <p>pretende praticar mais atividades artísticas para o bem-estar emocional?</p> <br>
-                        <select class="input" name="" id="booleana_ipt">
+                    </div>
+                    <p>pretende praticar mais atividades artísticas para o bem-estar emocional?</p>
+                    <div class="inputBox">
+                        <select style="border-radius: 40px;    width: 415px;
+                         height: 30px; font-size: 16px;" name="" id="booleana_ipt">
                             <option value="Sim">Sim</option>
                             <option value="Não">Não</option>
                         </select>
-                        <br> <br>
-                        <button onclick="confirmar()" class="botao">Confirmar respostas</button>
-
                     </div>
-
-
-
+                    <button onclick="confirmar()" class="botaoLogin">Confirmar respostas</button>
                 </div>
-            </div>
+          </div>
+        </main>
+
     </div>
 
-    </section>
-     <section class="footer">
-         <div class="share">
+
+    <section class="footer">
+        <div class="share">
             <p>Contato:</p>
-           <a href="https://www.instagram.com/itz_lipe01/"><img src="imagens/instagram-logo-instagram-icon-transparent-free-png.webp" alt="instagram" width="100" height="100" ></a> 
-         </div>
+            <a href="https://www.instagram.com/itz_lipe01/"><img
+                    src="imagens/instagram-logo-instagram-icon-transparent-free-png.webp" alt="instagram" width="100"
+                    height="100"></a>
+        </div>
     </section>
 </body>
+<p></p>
+<br> <br>
+<p></p> <br>
+<br> <br>
+<br>
+<p></p> <br>
+
+<br> <br> <br>
+<p></p> <br>
+
+<br> <br>
 
 </html>
 <script>
@@ -82,41 +97,41 @@
         let gostou = gostou_ipt.value
         let ID_USUARIO = sessionStorage.getItem("ID_USUARIO")
 
-        if (nota_antes >= 0 && nota_antes <= 10 && nota_depois >= 0 && nota_depois <= 10 ) {
+        if (nota_antes >= 0 && nota_antes <= 10 && nota_depois >= 0 && nota_depois <= 10) {
             if (gostou.length > 0) {
-                    fetch("/usuarios/questionario", {
-                                    method: "POST",
-                                    headers: {
-                                        "Content-Type": "application/json",
-                                    },
-                                    body: JSON.stringify({
-                                        // crie um atributo que recebe o valor recuperado aqui 
-                                        // Agora vá para o arquivo routes/usuario.js 
-                                        nota_antesServer: nota_antes,
-                                        nota_depoisServer: nota_depois,
-                                        booleanaServer: booleana,
-                                        gostouServer: gostou,
-                                        ID_USUARIOServer: ID_USUARIO
-                                    }),
-                                })
-                                    .then(function (resposta) {
-                                        console.log("resposta: ", resposta);
-                                        if (resposta.ok) {
-                                          alert("Questionário respondido com sucesso! Redirecionando para tela da Dashboard...")
-                                            setTimeout(() => {
-                                                window.location.href = "dashboard/dashboard.html";
-                                            }, "2000");
-                                            limparFormulario();
-                                            finalizarAguardar();
-                                        } else {
-                                            throw "Houve um erro ao tentar responder o questionário!";
-                                        }
-                                    })
-                                    .catch(function (resposta) {
-                                        console.log(`#ERRO: ${resposta}`);
-                                    });
-                                return false;
-}
+                fetch("/usuarios/questionario", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        // crie um atributo que recebe o valor recuperado aqui 
+                        // Agora vá para o arquivo routes/usuario.js 
+                        nota_antesServer: nota_antes,
+                        nota_depoisServer: nota_depois,
+                        booleanaServer: booleana,
+                        gostouServer: gostou,
+                        ID_USUARIOServer: ID_USUARIO
+                    }),
+                })
+                    .then(function (resposta) {
+                        console.log("resposta: ", resposta);
+                        if (resposta.ok) {
+                            alert("Questionário respondido com sucesso! Redirecionando para tela da Dashboard...")
+                            setTimeout(() => {
+                                window.location.href = "dashboard/dashboard.html";
+                            }, "2000");
+                            limparFormulario();
+                            finalizarAguardar();
+                        } else {
+                            throw "Houve um erro ao tentar responder o questionário!";
+                        }
+                    })
+                    .catch(function (resposta) {
+                        console.log(`#ERRO: ${resposta}`);
+                    });
+                return false;
+            }
             else {
                 alert('Insira um texto válido!')
             }

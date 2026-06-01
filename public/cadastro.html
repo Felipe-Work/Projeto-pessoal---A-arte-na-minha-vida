@@ -28,52 +28,61 @@
 
         </section>
     </header>
-    <div class="wallpaperC">
-        <section class="artes" id="artes" style="background-color: #1C1C1C;">
-
-            <h3 class="titulo"></h3>
-
-
-            <div class="box-container">
-                <div class="box2">
-                    <h2 class="titulo">Cadastro</h2>
-                    <div class="box-container2">
-                        <p>Nome completo</p> <br>
-                        <input class="input" type="" name="" id="nome_ipt" placeholder="insira seu nome completo"> <br>
-                        <br>
-                        <p>CPF</p> <br>
-                        <input class="input" type="text" name="" id="cpf_ipt" placeholder="apenas os números"> <br> <br>
-                        <p> Email </p> <br>
-                        <input class="input" type="text" name="" id="email_ipt" placeholder="felipe.maia@sptech.school">
-                        <br> <br>
-                        <p>Senha</p> <br>
-                        <input class="input" type="password" name="" id="senha_ipt" placeholder="Felipe#2026"> <br>
-                        <p class="senhared" id="minimo">Mínimo 8 caracteres</p> <br>
-                        <p class="senhared" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p> <br>
-                        <p class="senhared" id="maiuscula">Mínimo uma letra maiúscula</p> <br>
-                        <p class="senhared" id="minuscula">Mínimo uma letra minúscula</p> <br>
-                        <p class="senhared" id="numero">Contenha um número</p> <br> <br> <br>
-                        <p>Confirmar senha</p> <br>
-                        <input class="input" type="password" name="" id="confirmar_ipt" placeholder="Felipe#2026"> <br> <br>
-                        <p>Ja possui uma conta? faça o <a href="login.html" class="possuiconta">login</a></p>
-                        <button onclick="cadastrar()" class="botao">Cadastre-se</button>
-
+    <br> <br> <br> <br> <br> <br>
+    <div class="CL">
+        <main class="containerCL">
+            <div>
+                <div class="textos">
+                    <h1 class="cor">Cadastro</h1>
+                    <p>Nome completo</p>
+                    <div class="inputBox">
+                        <input class="input" type="" name="" id="nome_ipt" placeholder="insira seu nome completo">
                     </div>
-
-
-
+                    <p>CPF</p>
+                    <div class="inputBox">
+                        <input class="input" type="text" name="" id="cpf_ipt" placeholder="apenas os números">
+                    </div>
+                    <p>Email</p>
+                    <div class="inputBox">
+                        <input class="input" type="text" name="" id="email_ipt" placeholder="felipe.maia@sptech.school">
+                    </div>
+                    <p>Senha</p>
+                    <div class="inputBox">
+                        <input class="input" type="password" name="" id="senha_ipt" placeholder="#SPTech1SIS">
+                    </div>
+                    <div class="temqueter"> <br>
+                        <p class="senhared" id="minimo">Mínimo 8 caracteres</p>
+                        <p class="senhared" id="especiais">Contenha algum dos caracteres especiais: @, &, $, #</p>
+                        <p class="senhared" id="maiuscula">Mínimo uma letra maiúscula</p>
+                        <p class="senhared" id="minuscula">Mínimo uma letra minúscula</p>
+                        <p class="senhared" id="numero">Contenha um número</p> <br>
+                    </div>
+                    <p>Confirmar senha</p>
+                    <div class="inputBox">
+                        <input class="input" type="password" name="" id="confirmar_ipt" placeholder="#SPTech1SIS">
+                    </div>
+                    <button onclick="cadastrar()" class="botaoLogin">Cadastre-se</button>
+                    <div class="registro">
+                        <p>Ja possui uma conta? faça o <a href="login.html" class="possuiconta">login</a></p>
+                    </div>
                 </div>
             </div>
+        </main>
     </div>
 
     </section>
-     <section class="footer">
-         <div class="share">
+    <section class="footer">
+        <div class="share">
             <p>Contato:</p>
-           <a href="https://www.instagram.com/itz_lipe01/"><img src="instagram-logo-instagram-icon-transparent-free-png.webp" alt="instagram" width="100" height="100" ></a> 
-         </div>
+            <a href="https://www.instagram.com/itz_lipe01/"><img
+                    src="./imagens/instagram-logo-instagram-icon-transparent-free-png.webp" alt="instagram" width="100"
+                    height="100"></a>
+        </div>
     </section>
 </body>
+
+
+
 
 </html>
 <script>
@@ -194,44 +203,44 @@
                     alert('Insira um email válido para cadastro')
                 }
                 else {
-                   
-                        if ((ax_senha_especiais == true && ax_senha_maisucula == true &&
-                            ax_senha_minimo == true && ax_senha_minuscula == true &&
-                            ax_senha_numero == true)
-                        ) {
-                            if (senha == confirmar) {
-                                fetch("/usuarios/cadastrar", {
-                                    method: "POST",
-                                    headers: {
-                                        "Content-Type": "application/json",
-                                    },
-                                    body: JSON.stringify({
-                                        // crie um atributo que recebe o valor recuperado aqui 
-                                        // Agora vá para o arquivo routes/usuario.js 
-                                        nomeServer: nome,
-                                        emailServer: email,
-                                        senhaServer: senha,
-                                        cpfServer: cpf
-                                    }),
+
+                    if ((ax_senha_especiais == true && ax_senha_maisucula == true &&
+                        ax_senha_minimo == true && ax_senha_minuscula == true &&
+                        ax_senha_numero == true)
+                    ) {
+                        if (senha == confirmar) {
+                            fetch("/usuarios/cadastrar", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    // crie um atributo que recebe o valor recuperado aqui 
+                                    // Agora vá para o arquivo routes/usuario.js 
+                                    nomeServer: nome,
+                                    emailServer: email,
+                                    senhaServer: senha,
+                                    cpfServer: cpf
+                                }),
+                            })
+                                .then(function (resposta) {
+                                    console.log("resposta: ", resposta);
+                                    if (resposta.ok) {
+                                        alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...")
+                                        setTimeout(() => {
+                                            window.location.href = "login.html";
+                                        }, "2000");
+                                        limparFormulario();
+                                        finalizarAguardar();
+                                    } else {
+                                        throw "Houve um erro ao tentar realizar o cadastro!";
+                                    }
                                 })
-                                    .then(function (resposta) {
-                                        console.log("resposta: ", resposta);
-                                        if (resposta.ok) {
-                                          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...")
-                                            setTimeout(() => {
-                                                window.location.href = "login.html";
-                                            }, "2000");
-                                            limparFormulario();
-                                            finalizarAguardar();
-                                        } else {
-                                            throw "Houve um erro ao tentar realizar o cadastro!";
-                                        }
-                                    })
-                                    .catch(function (resposta) {
-                                        console.log(`#ERRO: ${resposta}`);
-                                    });
-                                return false;
-                            
+                                .catch(function (resposta) {
+                                    console.log(`#ERRO: ${resposta}`);
+                                });
+                            return false;
+
                         }
                         else {
                             alert('A senha deve ser igual em ambas as inputs')
@@ -242,12 +251,12 @@
                     }
 
                 }
-                    
-                }
-            }
 
+            }
         }
-    
+
+    }
+
 
 
 </script>
