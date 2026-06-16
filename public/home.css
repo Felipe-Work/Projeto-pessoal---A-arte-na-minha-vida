@@ -274,6 +274,7 @@ section {
 
 .pinturas p img:hover {
     background-color: var(--cor-principal);
+    
 }
 
 .footer {
